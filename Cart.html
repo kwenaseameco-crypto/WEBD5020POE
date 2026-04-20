@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Misunderstood World</title>
+</head>
+
+<body>
+    <!-- Backdrop overlay for mobile menu-->
+    <nav>
+        <div class="navbar">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Misundertood World</h1>
+    </div>
+
+    <script>
+        const hamburger = document.queryselector('.hamburger');
+        const navlinks = document.queryselector('.nav-links');
+        const menuBackdrop = document.queryselector('.menu-backdrop');
+
+        hamburger.addeventListener('click', () => {
+            hamburger.classlist.toggle('active');
+            navLinks.classlist.toggle('active');
+            menuBackdrop.classList.toggle('active');
+        });
+        // close menu when clicking on backdrop//
+        menuBackdrop.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            menuBackdrop.classList.remove('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classlist.remove('active');
+                navLinks.classList.remove('active');
+                menuBackdrop.classList.remove('active');
+            });
+        });
+    </script>
+    </head>
+
+</html>
